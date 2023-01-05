@@ -5,6 +5,7 @@ import PopularArticles from '@/components/PopularArticles'
 import { articleRepository } from '@/database/articleRepository'
 import { useLeadingArticle } from '@/hooks/useLeadingArticle'
 import { useNewArticles } from '@/hooks/useNewArticles'
+import { usePopularArticles } from '@/hooks/usePopularArticles'
 import styles from '@/styles/Home.module.scss'
 import { Article } from '@/types/Article'
 import { NewArticle } from '@/types/NewArticle'
@@ -15,6 +16,7 @@ import { useEffect, useMemo } from 'react'
 interface Props {
   leadingArticle?: Article
   newArticles?: NewArticle[]
+  popularArticles?: Article[]
 }
 
 export default function Home(props: Props) {
@@ -25,15 +27,28 @@ export default function Home(props: Props) {
     { newArticles: props.newArticles },
   )
 
+  const { popularArticles, fetchingPopularArticles, fetchPopularArticles } =
+    usePopularArticles({
+      popularArticles: props.popularArticles,
+    })
+
   const isFetching = useMemo(
-    () => [fetchingLeadingArticle, fetchingNewArticles].some((v) => v),
-    [fetchingLeadingArticle, fetchingNewArticles],
+    () =>
+      [
+        fetchingLeadingArticle,
+        fetchingNewArticles,
+        fetchingPopularArticles,
+      ].some((v) => v),
+    [fetchingLeadingArticle, fetchingNewArticles, fetchingPopularArticles],
   )
 
   useEffect(() => {
     ;(async () => {
-      await fetchLeadingArticle()
-      await fetchNewArticles()
+      await Promise.all([
+        fetchLeadingArticle(),
+        fetchNewArticles(),
+        fetchPopularArticles(),
+      ])
     })()
   }, [])
 
@@ -65,7 +80,7 @@ export default function Home(props: Props) {
           <NavBar />
           <LeadingArticle article={leadingArticle} />
           <NewArticles newArticles={newArticles} />
-          <PopularArticles />
+          <PopularArticles populateArticles={popularArticles} />
         </div>
       </main>
     </>

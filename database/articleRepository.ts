@@ -1,3 +1,6 @@
+import gamingGrowth from '@/assets/images/image-gaming-growth.jpg'
+import retroPcs from '@/assets/images/image-retro-pcs.jpg'
+import topLaptops from '@/assets/images/image-top-laptops.jpg'
 import web3Desktop from '@/assets/images/image-web-3-desktop.jpg'
 import web3Mobile from '@/assets/images/image-web-3-mobile.jpg'
 import { Article } from '@/types/Article'
@@ -35,6 +38,31 @@ export const articleRepository = {
         summary:
           'Private funding by VC firms is down 50% YOY. We take a look at what that means.',
         url: '#',
+      },
+    ]
+  },
+  async getPopularArticles(): Promise<Article[]> {
+    return [
+      {
+        headline: 'Reviving Retro PCs',
+        summary: 'What happens when old PCs are given modern upgrades?',
+        url: '#',
+        desktopImageUrl: retroPcs,
+        mobileImageUrl: retroPcs,
+      },
+      {
+        headline: 'Top 10 Laptops of 2022',
+        summary: 'Our best picks for various needs and budgets.',
+        url: '#',
+        desktopImageUrl: topLaptops,
+        mobileImageUrl: topLaptops,
+      },
+      {
+        headline: 'The Growth of Gaming',
+        summary: 'How the pandemic has sparked fresh opportunities.',
+        url: '#',
+        desktopImageUrl: gamingGrowth,
+        mobileImageUrl: gamingGrowth,
       },
     ]
   },

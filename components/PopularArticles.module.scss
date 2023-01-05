@@ -1,2 +1,50 @@
 .popularArticles {
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-row-gap: 1rem;
+
+  .article {
+    height: 129px;
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    grid-column-gap: 1.7rem;
+
+    .lhs {
+      .image {
+        width: 100px;
+        height: 129px;
+        object-fit: contain;
+      }
+    }
+
+    .rhs {
+      display: grid;
+      grid-template-rows: repeat(3, auto);
+      justify-content: space-between;
+
+      .index {
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 0;
+        line-height: 2rem;
+        color: var(--color-neutral-grayish-blue);
+      }
+
+      .headline {
+        font-size: 18px;
+        font-weight: 800;
+        line-height: 24px;
+        letter-spacing: 0;
+      }
+
+      .summary {
+        font-size: 15px;
+        line-height: 26px;
+        letter-spacing: 0;
+        font-weight: 400;
+        color: var(--color-neutral-dark-grayish-blue);
+      }
+    }
+  }
 }

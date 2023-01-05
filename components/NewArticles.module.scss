@@ -34,7 +34,7 @@
     .article {
       display: flex;
       flex-direction: column;
-      justify-content: start;
+      justify-content: flex-start;
       height: 7.25rem;
 
       .headline {
@@ -48,6 +48,7 @@
         font-size: 15px;
         font-weight: 400;
         line-height: 24px;
+        padding-right: 0.1rem;
         color: var(--color-neutral-grayish-blue);
       }
     }
