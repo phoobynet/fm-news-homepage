@@ -1,0 +1,13 @@
+.container {
+  .logo {
+    width: 45px;
+    height: 28px;
+  }
+
+  @media (min-width: 1440px) {
+    .logo {
+      width: 64px;
+      height: 40px;
+    }
+  }
+}

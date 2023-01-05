@@ -32,11 +32,14 @@
       "@/stores/*": [
         "stores/*"
       ],
-      "@/lib/*": [
-        "lib/*"
+      "@/types/*": [
+        "types/*"
       ],
       "@/hooks/*": [
-        "books/*"
+        "hooks/*"
+      ],
+      "@/database/*": [
+        "database/*"
       ]
     }
 

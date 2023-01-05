@@ -1,1 +1,18 @@
-.home {}
+.home {
+  display: grid;
+  justify-content: center;
+  margin-top: 1.7rem;
+
+  .content {
+    display: grid;
+    grid-template-rows: 28px 41.8rem 489px 451px;
+    grid-row-gap: 2rem;
+    width: 343px;
+  }
+
+  @media (min-width: 1440px) {
+    .content {
+      width: 1110px;
+    }
+  }
+}

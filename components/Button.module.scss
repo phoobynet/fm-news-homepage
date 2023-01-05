@@ -1,0 +1,16 @@
+.button {
+  text-transform: uppercase;
+  background-color: var(--color-primary-soft-red);
+  height: 3rem;
+  color: var(--color-neutral-off-white);
+  padding: 0 2rem;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 4.38px;
+  line-height: 24px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--color-neutral-very-dark-blue);
+  }
+}

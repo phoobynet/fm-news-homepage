@@ -1,7 +1,46 @@
+import LeadingArticle from '@/components/LeadingArticle'
+import NavBar from '@/components/NavBar'
+import NewArticles from '@/components/NewArticles'
+import PopularArticles from '@/components/PopularArticles'
+import { articleRepository } from '@/database/articleRepository'
+import { useLeadingArticle } from '@/hooks/useLeadingArticle'
+import { useNewArticles } from '@/hooks/useNewArticles'
 import styles from '@/styles/Home.module.scss'
+import { Article } from '@/types/Article'
+import { NewArticle } from '@/types/NewArticle'
+import { GetServerSideProps } from 'next'
 import Head from 'next/head'
+import { useEffect, useMemo } from 'react'
 
-export default function Home() {
+interface Props {
+  leadingArticle?: Article
+  newArticles?: NewArticle[]
+}
+
+export default function Home(props: Props) {
+  const { fetchingLeadingArticle, fetchLeadingArticle, leadingArticle } =
+    useLeadingArticle({ leadingArticle: props.leadingArticle })
+
+  const { fetchingNewArticles, newArticles, fetchNewArticles } = useNewArticles(
+    { newArticles: props.newArticles },
+  )
+
+  const isFetching = useMemo(
+    () => [fetchingLeadingArticle, fetchingNewArticles].some((v) => v),
+    [fetchingLeadingArticle, fetchingNewArticles],
+  )
+
+  useEffect(() => {
+    ;(async () => {
+      await fetchLeadingArticle()
+      await fetchNewArticles()
+    })()
+  }, [])
+
+  if (isFetching) {
+    return null
+  }
+
   return (
     <>
       <Head>
@@ -21,7 +60,26 @@ export default function Home() {
         />
         <title>Frontend Mentor | News homepage</title>
       </Head>
-      <main className={styles.home}>TODO</main>
+      <main className={styles.home}>
+        <div className={styles.content}>
+          <NavBar />
+          <LeadingArticle article={leadingArticle} />
+          <NewArticles newArticles={newArticles} />
+          <PopularArticles />
+        </div>
+      </main>
     </>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const leadingArticle = await articleRepository.getLeadingArticle()
+  const newArticles = await articleRepository.getNewArticles()
+
+  return {
+    props: {
+      leadingArticle,
+      newArticles,
+    },
+  }
 }

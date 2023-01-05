@@ -1,0 +1,43 @@
+.leadingArticle {
+  display: grid;
+  grid-template-rows: 19.4rem 9.4rem 8rem auto;
+
+  .image {
+    .desktop {
+      display: none;
+      object-fit: contain;
+      @media (min-width: 1440px) {
+        display: block;
+      }
+    }
+
+    .mobile {
+      width: 343px;
+      height: 300px;
+      object-fit: contain;
+      object-position: top;
+      @media (min-width: 1440px) {
+        display: none;
+      }
+    }
+  }
+
+  .headline {
+    margin-top: 1rem;
+    font-size: 40px;
+    line-height: 40px;
+    font-weight: 800;
+    letter-spacing: 0;
+  }
+
+  .summary {
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 26px;
+    color: var(--color-neutral-dark-grayish-blue);
+  }
+
+  .readMore {
+  }
+}
