@@ -19,7 +19,17 @@
     color: var(--color-neutral-off-white);
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.8rem;
+
+    li {
+      border-bottom-width: 1px;
+      border-bottom-style: solid;
+      border-bottom-color: var(--color-neutral-dark-grayish-blue);
+    }
+
+    li:last-child {
+      border-bottom: none;
+    }
 
     .article {
       display: flex;
