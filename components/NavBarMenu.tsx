@@ -2,7 +2,9 @@ import styles from './NavBarMenu.module.scss'
 import NavBarMenuHamburger from '@/components/NavBarMenuHamburger'
 import { useMenuStore } from '@/stores/useMenuStore'
 import { motion } from 'framer-motion'
+import { useRef } from 'react'
 import { createPortal } from 'react-dom'
+import { useOnClickOutside } from 'usehooks-ts'
 
 const menuItems = ['Home', 'New', 'Popular', 'Trending', 'Categories']
 
@@ -27,6 +29,12 @@ const Desktop = ({ onMenuItemClick }: ClickableMenuItemProps) => (
 
 const Mobile = ({ onMenuItemClick }: ClickableMenuItemProps) => {
   const menuOpen = useMenuStore((state) => state.menuOpen)
+  const toggleMenu = useMenuStore((state) => state.toggleMenu)
+  const ulRef = useRef(null)
+
+  useOnClickOutside(ulRef, () => {
+    toggleMenu(false)
+  })
 
   return (
     <div className={styles.mobileMenuContainer}>
@@ -45,6 +53,7 @@ const Mobile = ({ onMenuItemClick }: ClickableMenuItemProps) => {
               initial={{ width: 0 }}
               animate={{ width: 256 }}
               transition={{ duration: 0.2 }}
+              ref={ulRef}
             >
               {menuItems.map((item) => (
                 <li
