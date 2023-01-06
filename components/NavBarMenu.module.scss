@@ -1,3 +1,28 @@
 .navbarMenu {
-  background-color: cornflowerblue;
+  .menuItems {
+    list-style: none;
+    padding: 0;
+    display: none;
+
+    li {
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 26px;
+      color: var(--color-neutral-dark-grayish-blue);
+      cursor: pointer;
+
+      &:hover {
+        color: var(--color-primary-soft-orange);
+      }
+    }
+  }
+
+  @media (min-width: 1440px) {
+    .menuItems {
+      display: grid;
+      grid-auto-flow: column;
+      grid-column-gap: 2.8rem;
+      margin-top: 0.5rem;
+    }
+  }
 }

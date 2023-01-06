@@ -38,6 +38,9 @@
         line-height: 24px;
         letter-spacing: 0;
         cursor: pointer;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
 
         &:hover {
           color: var(--color-primary-soft-orange);
