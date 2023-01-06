@@ -44,7 +44,13 @@
         line-height: 24px;
         letter-spacing: 0;
         padding-bottom: 0.7rem;
+        cursor: pointer;
+
+        &:hover {
+          color: var(--color-primary-soft-orange);
+        }
       }
+
       .summary {
         font-size: 15px;
         font-weight: 400;
