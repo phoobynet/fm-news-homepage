@@ -4,7 +4,6 @@ import { useMenuStore } from '@/stores/useMenuStore'
 import { motion } from 'framer-motion'
 import { useRef } from 'react'
 import { createPortal } from 'react-dom'
-import { useOnClickOutside } from 'usehooks-ts'
 
 const menuItems = ['Home', 'New', 'Popular', 'Trending', 'Categories']
 
@@ -29,12 +28,8 @@ const Desktop = ({ onMenuItemClick }: ClickableMenuItemProps) => (
 
 const Mobile = ({ onMenuItemClick }: ClickableMenuItemProps) => {
   const menuOpen = useMenuStore((state) => state.menuOpen)
-  const toggleMenu = useMenuStore((state) => state.toggleMenu)
+  const setMenuOpen = useMenuStore((state) => state.setMenuOpen)
   const ulRef = useRef(null)
-
-  useOnClickOutside(ulRef, () => {
-    toggleMenu(false)
-  })
 
   return (
     <div className={styles.mobileMenuContainer}>
@@ -47,6 +42,7 @@ const Mobile = ({ onMenuItemClick }: ClickableMenuItemProps) => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.5 }}
               transition={{ duration: 0.2 }}
+              onClick={() => setMenuOpen(false)}
             />
             <motion.ul
               className={styles.menuItems}
@@ -72,11 +68,11 @@ const Mobile = ({ onMenuItemClick }: ClickableMenuItemProps) => {
 }
 
 export default function NavBarMenu() {
-  const toggleMenu = useMenuStore((state) => state.toggleMenu)
+  const setMenuOpen = useMenuStore((state) => state.setMenuOpen)
 
   const onMenuItemClick = (item: string) => {
     console.log(`You clicked on item "${item}"`)
-    toggleMenu(false)
+    setMenuOpen(false)
   }
 
   return (

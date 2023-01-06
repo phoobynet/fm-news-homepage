@@ -4,6 +4,9 @@ import { useMenuStore } from '@/stores/useMenuStore'
 export default function NavBarMenuHamburger() {
   const menuOpen = useMenuStore((state) => state.menuOpen)
   const toggleMenu = useMenuStore((state) => state.toggleMenu)
+
+  console.log('toggleMenu:', menuOpen)
+
   return (
     <button
       type="button"

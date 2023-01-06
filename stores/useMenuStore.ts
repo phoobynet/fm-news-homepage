@@ -2,22 +2,22 @@ import create from 'zustand'
 
 export interface UseMenuStore {
   menuOpen: boolean
-  toggleMenu: (open?: boolean) => void
+  toggleMenu: () => void
+  setMenuOpen: (open: boolean) => void
 }
 
 export const useMenuStore = create<UseMenuStore>((set, get) => {
   return {
     menuOpen: false,
-    toggleMenu(open?: boolean) {
-      if (open !== undefined) {
-        set({
-          menuOpen: open,
-        })
-      } else {
-        set({
-          menuOpen: !get().menuOpen,
-        })
-      }
+    toggleMenu() {
+      set({
+        menuOpen: !get().menuOpen,
+      })
+    },
+    setMenuOpen(menuOpen) {
+      set({
+        menuOpen,
+      })
     },
   }
 })
