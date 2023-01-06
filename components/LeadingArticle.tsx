@@ -36,9 +36,11 @@ export default function LeadingArticle({ article }: Props) {
       >
         {article.headline}
       </div>
-      <div className={styles.summary}>{article.summary}</div>
-      <div className={styles.readMore}>
-        <Button>read more</Button>
+      <div className={styles.summary}>
+        <p>{article.summary}</p>
+        <div className={styles.readMore}>
+          <Button>read more</Button>
+        </div>
       </div>
     </div>
   )

@@ -28,20 +28,23 @@
   }
 
   .summary {
-    font-size: 15px;
-    font-weight: 400;
-    letter-spacing: 0;
-    line-height: 26px;
-    color: var(--color-neutral-dark-grayish-blue);
-  }
+    p {
+      font-size: 15px;
+      font-weight: 400;
+      letter-spacing: 0;
+      line-height: 26px;
+      color: var(--color-neutral-dark-grayish-blue);
+    }
 
-  .readMore {
+    .readMore {
+      margin-top: 1.5rem;
+    }
   }
 
   @media (min-width: 1440px) {
     grid-template-rows: 300px auto;
-    grid-template-columns: repeat(2, auto);
-    grid-row-gap: 2rem;
+    grid-template-columns: 3.5fr 5fr;
+    grid-row-gap: 1.3rem;
 
     .image {
       grid-column: span 2;
@@ -56,9 +59,22 @@
 
     .headline {
       grid-row: 2;
-      grid-col: 1;
       font-size: 56px;
+      line-height: 56px;
       font-weight: 800;
+    }
+
+    .summary {
+      padding-left: 5rem;
+      padding-top: 0.7rem;
+
+      p {
+        line-height: 1.5rem;
+      }
+
+      .readMore {
+        margin-top: 2.2rem;
+      }
     }
   }
 }

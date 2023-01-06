@@ -14,7 +14,7 @@
     margin-top: 5.5rem;
     .content {
       width: 1110px;
-      grid-template-rows: 79px 511px 129px;
+      grid-template-rows: 79px 511px 39px 129px;
       grid-template-columns: 730px 350px;
       grid-row-gap: 1rem;
       grid-column-gap: 1.8rem;
@@ -36,7 +36,7 @@
       .popularArticlesContainer {
         grid-column-start: 1;
         grid-column-end: 3;
-        grid-row-start: 3;
+        grid-row-start: 4;
       }
     }
   }
