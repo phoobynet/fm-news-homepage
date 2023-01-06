@@ -13,7 +13,10 @@ export default function LeadingArticle({ article }: Props) {
   }
 
   return (
-    <div className={styles.leadingArticle}>
+    <div
+      className={styles.leadingArticle}
+      id="leading-articles"
+    >
       <div className={styles.image}>
         <Image
           src={article.desktopImageUrl}

@@ -3,7 +3,13 @@
   list-style: none;
   display: grid;
   grid-row-gap: 2rem;
+  //grid-template-rows: repeat(auto-fill, auto);
   max-height: 451px;
+
+  //@media (min-width: 1440px) {
+  //  grid-template-rows: unset;
+  //  grid-template-columns: repeat(auto-fill, auto);
+  //}
 
   .article {
     height: 129px;

@@ -54,4 +54,14 @@
       }
     }
   }
+
+  @media (min-width: 1440px) {
+    padding: 2.1rem 1.5rem;
+    max-height: 511px;
+
+    .heading {
+      font-size: 40px;
+      line-height: 40px;
+    }
+  }
 }

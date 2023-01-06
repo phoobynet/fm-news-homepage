@@ -5,10 +5,9 @@
   .image {
     .desktop {
       display: none;
+      width: 730px;
+      height: 300px;
       object-fit: contain;
-      @media (min-width: 1440px) {
-        display: block;
-      }
     }
 
     .mobile {
@@ -16,9 +15,6 @@
       height: 300px;
       object-fit: contain;
       object-position: top;
-      @media (min-width: 1440px) {
-        display: none;
-      }
     }
   }
 
@@ -28,6 +24,7 @@
     line-height: 40px;
     font-weight: 800;
     letter-spacing: 0;
+    grid-row: 2;
   }
 
   .summary {
@@ -39,5 +36,29 @@
   }
 
   .readMore {
+  }
+
+  @media (min-width: 1440px) {
+    grid-template-rows: 300px auto;
+    grid-template-columns: repeat(2, auto);
+    grid-row-gap: 2rem;
+
+    .image {
+      grid-column: span 2;
+      .desktop {
+        display: block;
+      }
+
+      .mobile {
+        display: none;
+      }
+    }
+
+    .headline {
+      grid-row: 2;
+      grid-col: 1;
+      font-size: 56px;
+      font-weight: 800;
+    }
   }
 }

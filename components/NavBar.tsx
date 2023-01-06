@@ -4,7 +4,10 @@ import NavBarMenu from '@/components/NavBarMenu'
 
 export default function NavBar() {
   return (
-    <div className={styles.navbar}>
+    <div
+      className={styles.navBar}
+      id="nav-bar"
+    >
       <Logo />
       <NavBarMenu />
     </div>

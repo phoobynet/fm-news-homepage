@@ -77,10 +77,18 @@ export default function Home(props: Props) {
       </Head>
       <main className={styles.home}>
         <div className={styles.content}>
-          <NavBar />
-          <LeadingArticle article={leadingArticle} />
-          <NewArticles newArticles={newArticles} />
-          <PopularArticles populateArticles={popularArticles} />
+          <div className={styles.navBarContainer}>
+            <NavBar />
+          </div>
+          <div className={styles.leadingArticleContainer}>
+            <LeadingArticle article={leadingArticle} />
+          </div>
+          <div className={styles.newArticlesContainer}>
+            <NewArticles newArticles={newArticles} />
+          </div>
+          <div className={styles.popularArticlesContainer}>
+            <PopularArticles populateArticles={popularArticles} />
+          </div>
         </div>
       </main>
     </>

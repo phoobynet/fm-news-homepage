@@ -11,8 +11,33 @@
   }
 
   @media (min-width: 1440px) {
+    margin-top: 5.5rem;
     .content {
       width: 1110px;
+      grid-template-rows: 79px 511px 129px;
+      grid-template-columns: 730px 350px;
+      grid-row-gap: 1rem;
+      grid-column-gap: 1.8rem;
+
+      .navBarContainer {
+        grid-column-start: span 2;
+      }
+
+      .leadingArticleContainer {
+        grid-column-start: 1;
+        grid-row-start: 2;
+      }
+
+      .newArticlesContainer {
+        grid-column-start: 2;
+        grid-row-start: 2;
+      }
+
+      .popularArticlesContainer {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 3;
+      }
     }
   }
 }

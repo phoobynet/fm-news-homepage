@@ -15,7 +15,10 @@ export default function PopularArticles({ populateArticles }: Props) {
     [populateArticles],
   )
   return (
-    <ul className={styles.popularArticles}>
+    <ul
+      className={styles.popularArticles}
+      id="popular-articles"
+    >
       {topPopularArticles.map((article, i) => (
         <li key={i}>
           <article className={styles.article}>

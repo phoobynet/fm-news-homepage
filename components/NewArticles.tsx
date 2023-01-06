@@ -18,7 +18,7 @@ export default function NewArticles({ newArticles }: Props) {
   }
 
   return (
-    <div>
+    <div id="new-articles">
       <div className={styles.newArticles}>
         <div
           role="heading"
